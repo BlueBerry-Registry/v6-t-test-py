@@ -19,10 +19,10 @@ TODO statements in the generated code - so you can also simply search the
 code for TODO instead of following the checklist below.
 
 - [ ] Include a URL to your code repository in setup.py.
-- [ ] Implement your algorithm functions.
+- [x] Implement your algorithm functions.
   - [x] You are free to add more arguments to the functions. Be sure to add them
     *after* the `client` and dataframe arguments.
-  - [ ] When adding new arguments, if you run the `test/test.py` script, be sure
+  - [x] When adding new arguments, if you run the `test/test.py` script, be sure
     to include values for these arguments in the `client.task.create()` calls
     that are available there.
 - [x] If you are using Python packages that are not in the standard library, add

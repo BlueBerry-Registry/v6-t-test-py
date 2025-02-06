@@ -22,13 +22,13 @@ client = MockAlgorithmClient(
     datasets=[
         # Data for first organization
         [{
-            "database": current_path / "test_data.csv",
+            "database": current_path / "data_org1.csv",
             "db_type": "csv",
             "input_data": {}
         }],
         # Data for second organization
         [{
-            "database": current_path / "test_data.csv",
+            "database": current_path / "data_org2.csv",
             "db_type": "csv",
             "input_data": {}
         }]
@@ -40,14 +40,15 @@ client = MockAlgorithmClient(
 organizations = client.organization.list()
 print(organizations)
 org_ids = [organization["id"] for organization in organizations]
+print(org_ids)
 
 # Run the central method on 1 node and get the results
 central_task = client.task.create(
     input_={
         "method":"central",
         "kwargs": {
-            # TODO add sensible values
-            "arg1": "some_value",
+            "col_name": "age",
+            "organizations_to_include": org_ids
 
         }
     },
@@ -56,13 +57,13 @@ central_task = client.task.create(
 results = client.wait_for_results(central_task.get("id"))
 print(results)
 
-# Run the partial method for all organizations
+""" # Run the partial method for all organizations
 task = client.task.create(
     input_={
         "method":"partial",
         "kwargs": {
             # TODO add sensible values
-            "arg1": "some_value",
+            "col_name": "age",
 
         }
     },
@@ -72,4 +73,4 @@ print(task)
 
 # Get the results from the task
 results = client.wait_for_results(task.get("id"))
-print(results)
+print(results) """

@@ -17,7 +17,7 @@
 
 project = "v6-independent-samples-t-test-py"
 copyright = ""
-author = "Vittoria Ramella, Frank Martin"
+author = ""
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
