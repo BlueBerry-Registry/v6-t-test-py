@@ -17,7 +17,12 @@
       ],
       "arguments": [
         {
-          "name": "arg1",
+          "name": "col_name",
+          "type": "",
+          "description": ""
+        },
+        {
+          "name": "organizations_to_include",
           "type": "",
           "description": ""
         }
@@ -34,7 +39,7 @@
       ],
       "arguments": [
         {
-          "name": "arg1",
+          "name": "col_name",
           "type": "",
           "description": ""
         }

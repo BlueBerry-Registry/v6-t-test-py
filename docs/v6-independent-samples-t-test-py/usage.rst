@@ -5,7 +5,7 @@ Input arguments
 ---------------
 
 .. describe the input arguments:
-.. ['arg1']
+.. ['col_name', 'organizations_to_include']
 
 Python client example
 ---------------------
@@ -41,7 +41,8 @@ first, especially the part about the
     'method': 'central',
     'args': [],
     'kwargs': {
-        'arg1': 'my_value',
+        'col_name': 'my_value',
+        'organizations_to_include': 'my_value',
     },
     'output_format': 'json'
   }
