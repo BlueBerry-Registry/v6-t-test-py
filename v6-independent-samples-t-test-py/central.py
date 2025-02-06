@@ -14,25 +14,31 @@ from vantage6.algorithm.client import AlgorithmClient
 
 @algorithm_client
 def central(
-    client: AlgorithmClient, arg1
+    client: AlgorithmClient, 
+    col_name: str,
+    organizations_to_include : list[int]
 ) -> Any:
 
-    """ Central part of the algorithm """
-    # TODO implement this function. Below is an example of a simple but typical
-    # central function.
+    """
+    Send task to each node participating in the task to compute a local mean and sample variance,
+    aggregate them to compute the t value for the independent sample t-test, and return the result.
 
-    # get all organizations (ids) within the collaboration so you can send a
-    # task to them.
-    organizations = client.organization.list()
-    org_ids = [organization.get("id") for organization in organizations]
+    Parameters
+    ----------
+    client : AlgorithmClient
+        The client object used to communicate with the server.
+    col_name : str
+        The column to compute the mean and sample variance for. The column must be numeric.
+    organizations_to_include : list[int]
+        The organizations to include in the task.
+    """
 
     # Define input parameters for a subtask
     info("Defining input parameters")
     input_ = {
         "method": "partial",
         "kwargs": {
-            # TODO add sensible values
-            "arg1": "some_value",
+            "col_name": col_name,
 
         }
     }
@@ -41,9 +47,9 @@ def central(
     info("Creating subtask for all organizations in the collaboration")
     task = client.task.create(
         input_=input_,
-        organizations=org_ids,
-        name="My subtask",
-        description="This is a very important subtask"
+        organizations=organizations_to_include,
+        name="Subtask mean and sample variance",
+        description="Compute mean and sample variance per data station."
     )
 
 
@@ -52,11 +58,12 @@ def central(
     results = client.wait_for_results(task_id=task.get("id"))
     info("Results obtained!")
 
-    # TODO probably you want to aggregate or combine these results here.
-    # For instance:
-    # results = [sum(result) for result in results]
+    # Aggregate results to compute t value for the independent-samples t test
+    # Compute pooled variance
+    Sp = ((results[0]["count"] - 1)*results[0]["S"] + (results[1]["count"] - 1)*results[1]["S"])/(results[0]["count"] + results[1]["count"] - 2)
+    
+    # t value
+    t = (results[0]["avg"] - results[1]["avg"])/(((Sp/results[0]["count"]) + (Sp/results[1]["count"])) ** 0.5)
 
     # return the final results of the algorithm
-    return results
-
-# TODO Feel free to add more central functions here.
+    return {"t": t}
