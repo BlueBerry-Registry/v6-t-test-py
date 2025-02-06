@@ -1,0 +1,44 @@
+{
+  "name": "v6-independent-samples-t-test-py",
+  "image": "v6-independent-samples-t-test-py",
+  "vantage6_version": "4.6",
+  "code_url": "https://mygitrepo.org",
+  "documentation_url": "",
+  "partitioning": "horizontal",
+  "functions": [
+    {
+      "name": "central",
+      "description": "Independent Samples t-test: This test compares the means of two independent groups to see if there is a significant difference between them.",
+      "type": "central",
+      "databases": [
+        {
+          "name": "Partial database 1"
+        }
+      ],
+      "arguments": [
+        {
+          "name": "arg1",
+          "type": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "partial",
+      "description": "",
+      "type": "federated",
+      "databases": [
+        {
+          "name": "Database 1"
+        }
+      ],
+      "arguments": [
+        {
+          "name": "arg1",
+          "type": "",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
