@@ -14,13 +14,9 @@ from vantage6.algorithm.client import AlgorithmClient
 
 @algorithm_client
 def central(
-<<<<<<< before updating
     client: AlgorithmClient, 
     col_name: str,
     organizations_to_include : list[int]
-=======
-    client: AlgorithmClient, col_name, organizations_to_include
->>>>>>> after updating
 ) -> Any:
 
     """
@@ -42,12 +38,7 @@ def central(
     input_ = {
         "method": "partial",
         "kwargs": {
-<<<<<<< before updating
             "col_name": col_name,
-=======
-            # TODO add sensible values
-            "col_name": "some_value",
->>>>>>> after updating
 
         }
     }

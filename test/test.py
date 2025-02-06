@@ -47,14 +47,8 @@ central_task = client.task.create(
     input_={
         "method":"central",
         "kwargs": {
-<<<<<<< before updating
             "col_name": "age",
             "organizations_to_include": org_ids
-=======
-            # TODO add sensible values
-            "col_name": "some_value",
-            "organizations_to_include": "some_value",
->>>>>>> after updating
 
         }
     },
@@ -69,11 +63,7 @@ task = client.task.create(
         "method":"partial",
         "kwargs": {
             # TODO add sensible values
-<<<<<<< before updating
             "col_name": "age",
-=======
-            "col_name": "some_value",
->>>>>>> after updating
 
         }
     },
