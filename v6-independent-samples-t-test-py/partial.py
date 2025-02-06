@@ -1,11 +1,3 @@
-"""
-This file contains all partial algorithm functions, that are normally executed
-on all nodes for which the algorithm is executed.
-
-The results in a return statement are sent to the vantage6 server (after
-encryption if that is enabled). From there, they are sent to the partial task
-or directly to the user (if they requested partial results).
-"""
 import pandas as pd
 import pandas.api.types as ptypes
 from typing import Any
@@ -15,12 +7,8 @@ from vantage6.algorithm.tools.decorators import data
 
 
 @data(1)
-def partial(
-    df: pd.DataFrame,
-    col_name: str
-) -> Any:
-
-    """ 
+def partial(df: pd.DataFrame, col_name: str) -> Any:
+    """
     Compute the mean and the sample variance of a column for a single data station to share with the
     aggregator part of the algorithm
 
@@ -33,7 +21,7 @@ def partial(
 
     Returns
     -------
-    dict 
+    dict
         The mean, the number of observations and the sample variance for the data station.
     """
 
@@ -47,14 +35,14 @@ def partial(
     # Count of observations
     count = len(df)
     # Mean
-    avg = col_sum/count
+    avg = col_sum / count
 
     ### Compute sample variance (S) ----
     info("Computing sample variance")
     # Sum of Squared Deviations (SSD)
     ssd = ((df[col_name].astype(float) - avg) ** 2).sum()
     # Sample variance
-    S = ssd/(count - 1)
+    S = ssd / (count - 1)
 
     # Return results to the vantage6 server.
     return {"avg": float(avg), "count": float(count), "S": float(S)}
