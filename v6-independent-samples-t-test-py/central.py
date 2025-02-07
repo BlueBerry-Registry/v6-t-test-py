@@ -51,12 +51,12 @@ def central(
     # Aggregate results to compute t value for the independent-samples t test
     # Compute pooled variance
     Sp = (
-        (results[0]["count"] - 1) * results[0]["S"]
-        + (results[1]["count"] - 1) * results[1]["S"]
+        (results[0]["count"] - 1) * results[0]["variance"]
+        + (results[1]["count"] - 1) * results[1]["variance"]
     ) / (results[0]["count"] + results[1]["count"] - 2)
 
     # t value
-    t = (results[0]["avg"] - results[1]["avg"]) / (
+    t = (results[0]["average"] - results[1]["average"]) / (
         ((Sp / results[0]["count"]) + (Sp / results[1]["count"])) ** 0.5
     )
 

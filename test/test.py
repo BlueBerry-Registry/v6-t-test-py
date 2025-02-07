@@ -64,13 +64,12 @@ print(results)
 """ # Run the partial method for all organizations
 task = client.task.create(
     input_={
-        "method":"partial",
+        "method": "partial",
         "kwargs": {
             "column_name": "age",
-
-        }
+        },
     },
-    organizations=org_ids
+    organizations=org_ids,
 )
 print(task)
 

@@ -1,6 +1,5 @@
 import pandas as pd
 import pandas.api.types as ptypes
-from typing import Any
 
 from vantage6.algorithm.tools.util import info, error
 from vantage6.algorithm.tools.decorators import data
@@ -33,18 +32,22 @@ def partial(df: pd.DataFrame, column_name: str) -> dict:
     ### Compute mean ----
     info("Computing mean")
     # Sum of the values
-    col_sum = df[column_name].sum()
+    column_sum = df[column_name].sum()
     # Count of observations
     count = len(df)
     # Mean
-    avg = col_sum / count
+    average = column_sum / count
 
     ### Compute sample variance (S) ----
     info("Computing sample variance")
     # Sum of Squared Deviations (SSD)
-    ssd = ((df[column_name].astype(float) - avg) ** 2).sum()
+    ssd = ((df[column_name].astype(float) - average) ** 2).sum()
     # Sample variance
-    S = ssd / (count - 1)
+    variance = ssd / (count - 1)
 
     # Return results to the vantage6 server.
-    return {"avg": float(avg), "count": float(count), "S": float(S)}
+    return {
+        "average": float(average),
+        "count": float(count),
+        "variance": float(variance),
+    }
