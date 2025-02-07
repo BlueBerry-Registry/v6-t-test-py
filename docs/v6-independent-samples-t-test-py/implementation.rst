@@ -8,7 +8,11 @@ Central (``central``)
 -----------------
 The central part is responsible for the orchestration and aggregation of the algorithm.
 
-.. Describe the central function here.
+The central function is responsible for the creation of partial tasks for each 
+organization. Once each organization has completed its assigned task, the central
+function collects and aggregates the results to compute the overall *t* value for the 
+**Independant-samples t test**.
+
 
 Partials
 --------
@@ -19,5 +23,5 @@ node.
 ``partial``
 ~~~~~~~~~~~~~~~~
 
-.. Describe the partial function.
+This function computes the mean, count and sample variance for a numerical column.
 

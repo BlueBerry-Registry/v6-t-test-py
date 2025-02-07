@@ -4,8 +4,20 @@ How to use
 Input arguments
 ---------------
 
-.. describe the input arguments:
-.. ['column_name', 'organizations_to_include']
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - Argument
+     - Type
+     - Description
+   * - ``column_name``
+     - String
+     - The column to compute the mean and sample variance for. The column must be
+       numeric.
+   * - ``organizations_to_include``
+     - List of integers
+     - Which organizations to include in the computation.
 
 Python client example
 ---------------------
@@ -30,7 +42,7 @@ first, especially the part about the
   username = 'root'
   password = 'password'
   collaboration_id = 1
-  organization_ids = [2]
+  organizations_to_include = [1,2]
 
   # Create connection with the vantage6 server
   client = Client(server, port, api_path)
@@ -39,12 +51,10 @@ first, especially the part about the
 
   input_ = {
     'method': 'central',
-    'args': [],
     'kwargs': {
-        'column_name': 'my_value',
-        'organizations_to_include': 'my_value',
-    },
-    'output_format': 'json'
+        'column_name': 'age',
+        'organizations_to_include': organizations_to_include,
+    }
   }
 
   my_task = client.task.create(
