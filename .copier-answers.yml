@@ -9,20 +9,20 @@ advanced: false
 algorithm_description: 'Independent Samples t-test: This test compares the means of
     two independent groups to see if there is a significant difference between them.'
 algorithm_name: v6-independent-samples-t-test-py
-author: Vittoria Ramella, Frank Martin
+author: V. Ramella
 central_args:
-- col_name
+- column_name
 - organizations_to_include
 central_function_client: true
 central_function_data: false
 central_function_name: central
-copyright: ''
+copyright: Biomeris, 2025
 has_central_function: true
 has_docs: true
 has_partial_function: true
 open_source_license: no_license
 partial_args:
-- col_name
+- column_name
 partial_function_client: false
 partial_function_data: true
 partial_function_name: partial

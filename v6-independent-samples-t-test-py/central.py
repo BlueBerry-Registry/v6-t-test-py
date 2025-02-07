@@ -7,7 +7,7 @@ from vantage6.algorithm.client import AlgorithmClient
 
 @algorithm_client
 def central(
-    client: AlgorithmClient, col_name: str, organizations_to_include: list[int]
+    client: AlgorithmClient, column_name: str, organizations_to_include: list[int]
 ) -> Any:
     """
     Send task to each node participating in the task to compute a local mean and sample
@@ -18,7 +18,7 @@ def central(
     ----------
     client : AlgorithmClient
         The client object used to communicate with the server.
-    col_name : str
+    column_name : str
         The column to compute the mean and sample variance for. The column must be
         numeric.
     organizations_to_include : list[int]
@@ -30,7 +30,7 @@ def central(
     input_ = {
         "method": "partial",
         "kwargs": {
-            "col_name": col_name,
+            "column_name": column_name,
         },
     }
 

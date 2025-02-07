@@ -11,6 +11,7 @@ installed. This can be done by running:
 
     pip install vantage6-algorithm-tools
 """
+
 from vantage6.algorithm.tools.mock_client import MockAlgorithmClient
 from pathlib import Path
 
@@ -21,19 +22,23 @@ current_path = Path(__file__).parent
 client = MockAlgorithmClient(
     datasets=[
         # Data for first organization
-        [{
-            "database": current_path / "data_org1.csv",
-            "db_type": "csv",
-            "input_data": {}
-        }],
+        [
+            {
+                "database": current_path / "data_org1.csv",
+                "db_type": "csv",
+                "input_data": {},
+            }
+        ],
         # Data for second organization
-        [{
-            "database": current_path / "data_org2.csv",
-            "db_type": "csv",
-            "input_data": {}
-        }]
+        [
+            {
+                "database": current_path / "data_org2.csv",
+                "db_type": "csv",
+                "input_data": {},
+            }
+        ],
     ],
-    module="v6-independent-samples-t-test-py"
+    module="v6-independent-samples-t-test-py",
 )
 
 # list mock organizations
@@ -45,12 +50,11 @@ print(org_ids)
 # Run the central method on 1 node and get the results
 central_task = client.task.create(
     input_={
-        "method":"central",
+        "method": "central",
         "kwargs": {
-            "col_name": "age",
-            "organizations_to_include": org_ids
-
-        }
+            "column_name": "age",
+            "organizations_to_include": org_ids,
+        },
     },
     organizations=[org_ids[0]],
 )
@@ -62,8 +66,7 @@ task = client.task.create(
     input_={
         "method":"partial",
         "kwargs": {
-            # TODO add sensible values
-            "col_name": "age",
+            "column_name": "age",
 
         }
     },
