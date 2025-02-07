@@ -1,5 +1,3 @@
-from typing import Any
-
 from vantage6.algorithm.tools.util import info
 from vantage6.algorithm.tools.decorators import algorithm_client
 from vantage6.algorithm.client import AlgorithmClient
@@ -8,7 +6,7 @@ from vantage6.algorithm.client import AlgorithmClient
 @algorithm_client
 def central(
     client: AlgorithmClient, column_name: str, organizations_to_include: list[int]
-) -> Any:
+) -> dict:
     """
     Send task to each node participating in the task to compute a local mean and sample
     variance, aggregate them to compute the t value for the independent sample t-test,
