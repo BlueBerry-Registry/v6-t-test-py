@@ -20,7 +20,7 @@ copyright: Biomeris, 2025
 has_central_function: true
 has_docs: true
 has_partial_function: true
-open_source_license: no_license
+open_source_license: mit
 partial_args:
 - column_name
 partial_function_client: false
