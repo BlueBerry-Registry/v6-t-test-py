@@ -11,7 +11,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 # Here you specify the meta-data of your package. The `name` argument is
 # needed in some other steps.
 setup(
-    name='v6-independent-samples-t-test-py',
+    name='v6-t-test-py',
     version="1.0.0",
     description='Independent Samples t-test: This test compares the means of two independent groups to see if there is a significant difference between them.',
     long_description=long_description,

@@ -1,6 +1,6 @@
 {
-  "name": "v6-independent-samples-t-test-py",
-  "image": "v6-independent-samples-t-test-py",
+  "name": "v6-t-test-py",
+  "image": "v6-t-test-py",
   "vantage6_version": "4.6",
   "code_url": "https://mygitrepo.org",
   "documentation_url": "",

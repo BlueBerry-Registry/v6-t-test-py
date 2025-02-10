@@ -3,7 +3,7 @@ FROM harbor2.vantage6.ai/infrastructure/algorithm-base
 
 # This is a placeholder that should be overloaded by invoking
 # docker build with '--build-arg PKG_NAME=...'
-ARG PKG_NAME="v6-independent-samples-t-test-py"
+ARG PKG_NAME="v6-t-test-py"
 
 # install federated algorithm
 COPY . /app

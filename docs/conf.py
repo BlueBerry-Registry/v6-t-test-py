@@ -15,7 +15,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "v6-independent-samples-t-test-py"
+project = "v6-t-test-py"
 copyright = ""
 author = "V. Ramella"
 

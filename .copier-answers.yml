@@ -8,7 +8,7 @@ _src_path: gh:vantage6/v6-algorithm-template.git
 advanced: false
 algorithm_description: 'Independent Samples t-test: This test compares the means of
     two independent groups to see if there is a significant difference between them.'
-algorithm_name: v6-independent-samples-t-test-py
+algorithm_name: v6-t-test-py
 author: V. Ramella
 central_args:
 - column_name
@@ -27,4 +27,4 @@ partial_function_client: false
 partial_function_data: true
 partial_function_name: partial
 partial_function_number_databases: 1
-project_name: v6-independent-samples-t-test-py
+project_name: v6-t-test-py

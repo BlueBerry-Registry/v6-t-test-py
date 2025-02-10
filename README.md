@@ -1,5 +1,5 @@
 
-# v6-independent-samples-t-test-py
+# v6-t-test-py
 
 Independent Samples t-test: This test compares the means of two independent groups to see if there is a significant difference between them.
 
