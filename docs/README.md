@@ -1,4 +1,4 @@
-# Documentation of v6-independent-samples-t-test-py
+# Documentation of v6-t-test-py
 
 ### How to run this documentation locally
 

@@ -38,7 +38,7 @@ client = MockAlgorithmClient(
             }
         ],
     ],
-    module="v6-independent-samples-t-test-py",
+    module="v6-t-test-py",
 )
 
 # list mock organizations

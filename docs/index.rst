@@ -1,4 +1,4 @@
-v6-independent-samples-t-test-py
+v6-t-test-py
 ==================
 
 Description
@@ -29,8 +29,8 @@ Contents
 .. toctree::
     :maxdepth: 2
 
-    v6-independent-samples-t-test-py/implementation
-    v6-independent-samples-t-test-py/usage
-    v6-independent-samples-t-test-py/privacy
-    v6-independent-samples-t-test-py/validation
-    v6-independent-samples-t-test-py/references
+    v6-t-test-py/implementation
+    v6-t-test-py/usage
+    v6-t-test-py/privacy
+    v6-t-test-py/validation
+    v6-t-test-py/references

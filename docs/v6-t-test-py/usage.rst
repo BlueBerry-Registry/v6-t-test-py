@@ -60,9 +60,9 @@ first, especially the part about the
   my_task = client.task.create(
       collaboration=collaboration_id,
       organizations=organization_ids,
-      name='v6-independent-samples-t-test-py',
+      name='v6-t-test-py',
       description='Independent Samples t-test: This test compares the means of two independent groups to see if there is a significant difference between them.',
-      image='v6-independent-samples-t-test-py',
+      image='v6-t-test-py',
       input_=input_,
       databases=[{"label": "default"}],
   )
