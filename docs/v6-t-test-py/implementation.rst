@@ -23,5 +23,6 @@ node.
 ``partial``
 ~~~~~~~~~~~~~~~~
 
-This function computes the mean, count and sample variance for a numerical column.
+This function computes the mean, count (number of observations) and sample variance for 
+a numerical column.
 

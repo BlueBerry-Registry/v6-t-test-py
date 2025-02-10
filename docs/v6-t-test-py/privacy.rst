@@ -10,8 +10,10 @@ Guards
 Data sharing
 ------------
 
-.. which data is shared between the parties? E.g. for an average, sum and total count
-.. are shared.
+The intermediate shared data for each data station is:
+- **mean** of a numerical column;
+- **number of observations**;
+- **sample variance**.
 
 Vulnerabilities to known attacks
 --------------------------------
