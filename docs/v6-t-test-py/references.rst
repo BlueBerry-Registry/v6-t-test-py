@@ -12,5 +12,5 @@ research, please cite the following paper:
    Vol. 2020. American Medical Informatics Association, 2020.
    `[link] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8075508/>`_
 
-Used sources
-------------
+.. Used sources
+.. ------------
