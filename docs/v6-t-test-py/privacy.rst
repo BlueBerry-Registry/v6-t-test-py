@@ -4,13 +4,22 @@ Privacy
 Guards
 ------
 
-.. What have you done to protect your users' privacy? E.g. threshold on low counts,
-.. noise addition, etc.
+- **Minimum number of records**: A node will only participate if it
+  contains at least `n` records in the local dataset. This is to prevent nodes with very
+  little data from participating in the computation. By default, the minimum number of 
+  data rows is set to 3. Node administrators can change this minimum by adding the 
+  following to their node configuration file:
+
+  .. code:: yaml
+
+    algorithm_env:
+      T_TEST_MINIMUM_NUMBER_OF_RECORDS: 5
 
 Data sharing
 ------------
 
 The intermediate shared data for each data station is:
+
 - **mean** of a numerical column;
 - **number of observations**;
 - **sample variance**.
@@ -29,11 +38,11 @@ Vulnerabilities to known attacks
       - Risk eliminated?
       - Risk analysis
     * - Reconstruction
-      - ⚠
-      - May happen if ...
+      - ✔
+      - 
     * - Differencing
       - ❌
-      - Possible by doing A then B...
+      - It is potentially possible to single out a patient by selecting subgroups of patients.
     * - Deep Leakage from Gradients (DLG)
       - ✔
       -
