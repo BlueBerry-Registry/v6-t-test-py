@@ -13,7 +13,7 @@ Guards
   .. code:: yaml
 
     algorithm_env:
-      T_TEST_MINIMUM_NUMBER_OF_RECORDS: 5
+      T_TEST_MINIMUM_NUMBER_OF_RECORDS: 3
 
 Data sharing
 ------------
