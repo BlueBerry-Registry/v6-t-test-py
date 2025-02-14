@@ -1,8 +1,10 @@
 import pandas as pd
 import pandas.api.types as ptypes
 
-from vantage6.algorithm.tools.util import info, error
+from vantage6.algorithm.tools.util import info, error, get_env_var
 from vantage6.algorithm.tools.decorators import data
+from vantage6.algorithm.tools.exceptions import InputError
+from .globals import T_TEST_MINIMUM_NUMBER_OF_RECORDS
 
 
 @data(1)
@@ -25,6 +27,18 @@ def partial(df: pd.DataFrame, column_name: str) -> dict:
         The mean, the number of observations and the sample variance for the data
         station.
     """
+
+    info("Checking number of records in the DataFrame.")
+    MINIMUM_NUMBER_OF_RECORDS = get_env_var(
+        "T_TEST_MINIMUM_NUMBER_OF_RECORDS",
+        T_TEST_MINIMUM_NUMBER_OF_RECORDS,
+        as_type="int",
+    )
+    if len(df) <= MINIMUM_NUMBER_OF_RECORDS:
+        raise InputError(
+            "Number of records in 'df' must be greater than "
+            f"{MINIMUM_NUMBER_OF_RECORDS}."
+        )
 
     if not ptypes.is_numeric_dtype(df[column_name]):
         error("Column must be numeric.")
