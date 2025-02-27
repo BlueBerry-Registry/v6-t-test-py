@@ -4,6 +4,7 @@ How to use
 Input arguments
 ---------------
 
+<<<<<<< before updating
 .. list-table::
    :widths: 20 80
    :header-rows: 1
@@ -18,6 +19,10 @@ Input arguments
      - List of strings
      - The columns to compute the mean and sample variance for. The columns must be
      numeric. If not provided, all numeric columns are included.
+=======
+.. describe the input arguments:
+.. ['organizations_to_include', 'columns']
+>>>>>>> after updating
 
 Python client example
 ---------------------
@@ -53,8 +58,9 @@ first, especially the part about the
     'method': 'central',
     'kwargs': {
         'organizations_to_include': organizations_to_include,
-        'column_name': ['age', 'Height'],
-    }
+        'columns': ['age', 'Height'],
+    },
+    'output_format': 'json'
   }
 
   my_task = client.task.create(
