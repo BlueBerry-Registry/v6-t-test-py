@@ -17,14 +17,16 @@
       ],
       "arguments": [
         {
-          "name": "column_name",
-          "type": "string",
-          "description": "The column to compute the mean and sample variance for. The column must be numeric."
-        },
-        {
           "name": "organizations_to_include",
           "type": "list",
           "description": "The organizations to include in the task."
+        },
+        {
+          "name": "columns",
+          "type": "list",
+          "description": "The columns to compute the mean and sample variance for. The columns must be numeric. If not provided, all numeric columns are included.",
+          "default_value": null,
+          "has_default_value": true
         }
       ]
     },
@@ -39,9 +41,11 @@
       ],
       "arguments": [
         {
-          "name": "column_name",
-          "type": "string",
-          "description": "The column to compute the mean and sample variance for. The column must be numeric."
+          "name": "columns",
+          "type": "list",
+          "description": "The columns to compute the mean and sample variance for. The columns must be numeric. If not provided, all numeric columns are included.",
+          "default_value": null,
+          "has_default_value": true
         }
       ]
     }

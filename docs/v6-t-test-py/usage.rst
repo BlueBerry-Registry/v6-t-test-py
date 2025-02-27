@@ -11,13 +11,13 @@ Input arguments
    * - Argument
      - Type
      - Description
-   * - ``column_name``
-     - String
-     - The column to compute the mean and sample variance for. The column must be
-       numeric.
    * - ``organizations_to_include``
      - List of integers
      - Which organizations to include in the computation.
+   * - ``columns``
+     - List of strings
+     - The columns to compute the mean and sample variance for. The columns must be
+     numeric. If not provided, all numeric columns are included.
 
 Python client example
 ---------------------
@@ -52,8 +52,8 @@ first, especially the part about the
   input_ = {
     'method': 'central',
     'kwargs': {
-        'column_name': 'age',
         'organizations_to_include': organizations_to_include,
+        'column_name': ['age', 'Height'],
     }
   }
 

@@ -5,7 +5,9 @@ from vantage6.algorithm.client import AlgorithmClient
 
 @algorithm_client
 def central(
-    client: AlgorithmClient, column_name: str, organizations_to_include: list[int]
+    client: AlgorithmClient,
+    organizations_to_include: list[int],
+    columns: list[str] | None = None,
 ) -> dict:
     """
     Send task to each node participating in the task to compute a local mean and sample
@@ -16,11 +18,11 @@ def central(
     ----------
     client : AlgorithmClient
         The client object used to communicate with the server.
-    column_name : str
-        The column to compute the mean and sample variance for. The column must be
-        numeric.
     organizations_to_include : list[int]
         The organizations to include in the task.
+    columns : list[str] | None
+        The columns to compute the mean and sample variance for. The columns must be
+        numeric. If not provided, all numeric columns are included.
     """
 
     # Define input parameters for a subtask
@@ -28,7 +30,7 @@ def central(
     input_ = {
         "method": "partial",
         "kwargs": {
-            "column_name": column_name,
+            "columns": columns,
         },
     }
 
@@ -47,16 +49,19 @@ def central(
     info("Results obtained!")
 
     # Aggregate results to compute t value for the independent-samples t test
-    # Compute pooled variance
-    Sp = (
-        (results[0]["count"] - 1) * results[0]["variance"]
-        + (results[1]["count"] - 1) * results[1]["variance"]
-    ) / (results[0]["count"] + results[1]["count"] - 2)
-
-    # t value
-    t = (results[0]["average"] - results[1]["average"]) / (
-        ((Sp / results[0]["count"]) + (Sp / results[1]["count"])) ** 0.5
-    )
+    t = {}
+    for cols in zip(*[result.items() for result in results]):
+        col = cols[0][0]
+        col_result = [col_value[1] for col_value in cols]
+        # Compute pooled variance
+        Sp = (
+            (col_result[0]["count"] - 1) * col_result[0]["variance"]
+            + (col_result[1]["count"] - 1) * col_result[1]["variance"]
+        ) / (col_result[0]["count"] + col_result[1]["count"] - 2)
+        # t value
+        t[col] = (col_result[0]["average"] - col_result[1]["average"]) / (
+            ((Sp / col_result[0]["count"]) + (Sp / col_result[1]["count"])) ** 0.5
+        )
 
     # return the final results of the algorithm
-    return {"t": t}
+    return t
