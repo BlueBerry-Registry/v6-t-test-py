@@ -47,8 +47,8 @@ def partial(
         columns = df.select_dtypes(include=["number"]).columns.tolist()
     else:
         # Check that column names exist in the dataframe
-        if not all([col in df.columns for col in columns]):
-            non_existing_columns = [col for col in columns if col not in df.columns]
+        non_existing_columns = [col for col in columns if col not in df.columns]
+        if non_existing_columns:
             raise InputError(
                 f"Columns {non_existing_columns} do not exist in the dataframe"
             )
