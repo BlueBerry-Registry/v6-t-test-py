@@ -21,7 +21,7 @@ def central(
     organizations_to_include : list[int]
         The organizations to include in the task.
     columns : list[str] | None
-        The columns to compute the mean and sample variance for. The columns must be
+        The columns to compute the t test for. The columns must be
         numeric. If not provided, all numeric columns are included.
     """
 
