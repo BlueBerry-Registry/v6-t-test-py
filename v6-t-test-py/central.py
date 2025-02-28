@@ -1,6 +1,7 @@
 from vantage6.algorithm.tools.util import info
 from vantage6.algorithm.tools.decorators import algorithm_client
 from vantage6.algorithm.client import AlgorithmClient
+from vantage6.algorithm.tools.exceptions import UserInputError
 
 
 @algorithm_client
@@ -19,11 +20,15 @@ def central(
     client : AlgorithmClient
         The client object used to communicate with the server.
     organizations_to_include : list[int]
-        The organizations to include in the task.
+        The organizations to include in the task. These must be exactly 2.
     columns : list[str] | None
         The columns to compute the t test for. The columns must be
         numeric. If not provided, all numeric columns are included.
     """
+
+    # Check that the number of organization included is exactly 2
+    if len(organizations_to_include) != 2:
+        raise UserInputError("Exactly 2 organizations should be provided")
 
     # Define input parameters for a subtask
     info("Defining input parameters")

@@ -19,12 +19,12 @@
         {
           "name": "organizations_to_include",
           "type": "list",
-          "description": "The organizations to include in the task."
+          "description": "The organizations to include in the task. These must be exactly "
         },
         {
           "name": "columns",
           "type": "list",
-          "description": "The columns to compute the mean and sample variance for. The columns must be numeric. If not provided, all numeric columns are included.",
+          "description": "The columns to compute the t test for. The columns must be numeric. If not provided, all numeric columns are included.",
           "default_value": null,
           "has_default_value": true
         }
