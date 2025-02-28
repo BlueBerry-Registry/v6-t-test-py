@@ -44,7 +44,7 @@ def partial(
         )
 
     if not columns:
-        columns = df.select_dtypes(include=["int", "float"]).columns.tolist()
+        columns = df.select_dtypes(include=["number"]).columns.tolist()
     else:
         # Check that column names exist in the dataframe
         if not all([col in df.columns for col in columns]):
