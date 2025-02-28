@@ -53,10 +53,10 @@ def partial(
                 f"Columns {non_existing_columns} do not exist in the dataframe"
             )
         # Check that columns are numerical
-        if not all(ptypes.is_numeric_dtype(df[col]) for col in columns):
-            non_numeric_columns = [
-                col for col in columns if not ptypes.is_numeric_dtype(df[col])
-            ]
+        non_numeric_columns = [
+            col for col in columns if not ptypes.is_numeric_dtype(df[col])
+        ]
+        if non_numeric_columns:
             raise InputError(f"Columns {non_numeric_columns} are not numeric")
 
     # Compute mean and sample variance
