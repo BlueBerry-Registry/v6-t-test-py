@@ -11,13 +11,13 @@ Input arguments
    * - Argument
      - Type
      - Description
-   * - ``column_name``
-     - String
-     - The column to compute the mean and sample variance for. The column must be
-       numeric.
    * - ``organizations_to_include``
      - List of integers
-     - Which organizations to include in the computation.
+     - Which organizations to include in the computation. These must be exactly 2.
+   * - ``columns``
+     - List of strings
+     - The columns to compute the mean and sample variance for. The columns must be
+     numeric. If not provided, all numeric columns are included.
 
 Python client example
 ---------------------
@@ -26,10 +26,6 @@ To understand the information below, you should be familiar with the vantage6
 framework. If you are not, please read the `documentation <https://docs.vantage6.ai>`_
 first, especially the part about the
 `Python client <https://docs.vantage6.ai/en/main/user/pyclient.html>`_.
-
-.. TODO Update the code below and explain input
-
-.. TODO Optionally/alternatively, explain how to run via the vantage6 UI
 
 .. code-block:: python
 
@@ -52,9 +48,10 @@ first, especially the part about the
   input_ = {
     'method': 'central',
     'kwargs': {
-        'column_name': 'age',
         'organizations_to_include': organizations_to_include,
-    }
+        'columns': ['age', 'Height'],
+    },
+    'output_format': 'json'
   }
 
   my_task = client.task.create(

@@ -18,7 +18,7 @@ Please ensure to execute the following steps. The steps are also indicated with
 TODO statements in the generated code - so you can also simply search the
 code for TODO instead of following the checklist below.
 
-- [ ] Include a URL to your code repository in setup.py.
+- [x] Include a URL to your code repository in setup.py.
 - [x] Implement your algorithm functions.
   - [x] You are free to add more arguments to the functions. Be sure to add them
     *after* the `client` and dataframe arguments.
@@ -27,9 +27,9 @@ code for TODO instead of following the checklist below.
     that are available there.
 - [x] If you are using Python packages that are not in the standard library, add
   them to the `requirements.txt` and `setup.py` file.
-- [ ] Fill in the documentation template. This will help others to understand your
+- [x] Fill in the documentation template. This will help others to understand your
   algorithm, be able to use it safely, and to contribute to it.
-- [ ] If you want to submit your algorithm to a vantage6 algorithm store, be sure
+- [x] If you want to submit your algorithm to a vantage6 algorithm store, be sure
   to fill in everything in ``algorithm_store.json`` (and be sure to update
   it if you change function names, arguments, etc.).
 - [ ] Finally, remove this checklist section to keep the README clean.
