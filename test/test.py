@@ -32,7 +32,7 @@ client = MockAlgorithmClient(
         # Data for second organization
         [
             {
-                "database": current_path / "data_org2.csv",
+                "database": current_path / "data_org2_0_count.csv",
                 "db_type": "csv",
                 "input_data": {},
             }
@@ -51,7 +51,7 @@ print(org_ids)
 central_task = client.task.create(
     input_={
         "method": "central",
-        "kwargs": {"organizations_to_include": org_ids, "columns": ["age", "Height"]},
+        "kwargs": {"organizations_to_include": org_ids},
     },
     organizations=[org_ids[0]],
 )

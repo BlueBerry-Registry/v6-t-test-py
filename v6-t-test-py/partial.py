@@ -65,8 +65,12 @@ def partial(
     for col in columns:
         # Mean and total count (N)
         info(f"Computing mean for {col}")
-        column_sum = df[col].sum()
         count = df[col].count()
+        # Check if count is not equal to 0 or 1 to avoid division by 0
+        if count == 0 or count == 1:
+            info(f"Skipping {col} due to insufficient data.")
+            continue
+        column_sum = df[col].sum()
         average = column_sum / count
         # Sample variance
         info(f"Computing sample variance for {col}")
