@@ -24,5 +24,5 @@ node.
 ~~~~~~~~~~~~~~~~
 
 This function computes the mean, count (number of observations) and sample variance for 
-a numerical column.
+numerical columns.
 
