@@ -1,3 +1,6 @@
+import numpy as np
+from scipy.stats import t
+
 from vantage6.algorithm.tools.util import info
 from vantage6.algorithm.tools.decorators import algorithm_client
 from vantage6.algorithm.client import AlgorithmClient
@@ -54,7 +57,7 @@ def central(
     info("Results obtained!")
 
     # Aggregate results to compute t value for the independent-samples t test
-    t = {}
+    t_test_results = {}
     for cols in zip(*[result.items() for result in results]):
         col = cols[0][0]
         col_result = [col_value[1] for col_value in cols]
@@ -63,10 +66,19 @@ def central(
             (col_result[0]["count"] - 1) * col_result[0]["variance"]
             + (col_result[1]["count"] - 1) * col_result[1]["variance"]
         ) / (col_result[0]["count"] + col_result[1]["count"] - 2)
-        # t value
-        t[col] = (col_result[0]["average"] - col_result[1]["average"]) / (
+        # t score
+        t_score = (col_result[0]["average"] - col_result[1]["average"]) / (
             ((Sp / col_result[0]["count"]) + (Sp / col_result[1]["count"])) ** 0.5
         )
+        # Degrees of freedom (DOF)
+        dof = (col_result[0]["count"] + col_result[1]["count"]) - 2
+        # p-value
+        p_value = float(2 * (1 - t.cdf(np.abs(t_score), dof)))
+
+        t_test_results[col] = {
+            "t_score": t_score,
+            "p_value": p_value,
+        }
 
     # return the final results of the algorithm
-    return t
+    return t_test_results

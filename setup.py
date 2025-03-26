@@ -19,5 +19,5 @@ setup(
     url="https://github.com/BlueBerry-Registry/v6-t-test-py",
     packages=find_packages(),
     python_requires=">=3.10",
-    install_requires=["vantage6-algorithm-tools==4.9.1", "pandas"],
+    install_requires=["vantage6-algorithm-tools==4.9.1", "pandas", "numpy", "scipy"],
 )
